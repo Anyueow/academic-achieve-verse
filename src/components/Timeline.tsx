@@ -1,11 +1,43 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, FileText, Briefcase, Users, Star } from 'lucide-react';
+import { 
+  Calendar, 
+  FileText, 
+  Briefcase, 
+  Users, 
+  Star, 
+  ChevronDown, 
+  ChevronUp, 
+  CircleDot
+} from 'lucide-react';
 
+// Define a unified timeline item type
+interface TimelineItem {
+  id: number;
+  title: string;
+  organization: string;
+  location?: string;
+  startDate: string;
+  endDate?: string;
+  type: 'professional' | 'research' | 'project' | 'leadership';
+  category: string[];
+  description: string[];
+  skills?: string[];
+  link?: string;
+  image?: string;
+  abstract?: string; // For research papers
+  field?: string; // For research papers
+  keywords?: string[]; // For research papers
+  timePeriod?: string; // Will be computed
+  year?: number; // Will be computed for sorting
+}
+
+// Combine experience, research and project data
 const experienceData = [
   {
     id: 1,
@@ -159,14 +191,152 @@ const experienceData = [
     ],
     skills: ["LoRA", "LLMs", "Bias Mitigation", "Fine-tuning", "NLP Ethics"],
     link: "/papers/LoRA_Dialect_Bias_Mitigation.pdf"
-  }
+  },
+  {
+    id: 11,
+    title: "CNN & Time Series Hybrid Models for Fashion Trend Forecasting",
+    organization: "Research Paper",
+    startDate: "April 2025",
+    type: "research",
+    category: ["computer-vision", "time-series"],
+    description: [
+      "A novel approach combining Convolutional Neural Networks with LSTM time-series analysis to predict fashion trends by analyzing runway images alongside temporal data from Google Trends, providing actionable insights for inventory optimization."
+    ],
+    skills: ["CNN", "LSTM", "Fashion Forecasting", "Computer Vision", "Time Series Analysis"],
+    link: "/papers/fashion-forecasting.pdf"
+  },
+  {
+    id: 12,
+    title: "AWS-Powered Personal Finance Analyzer (Spend Analyzer)",
+    organization: "Project",
+    startDate: "April 2025",
+    type: "project",
+    category: ["finance", "cloud-computing"],
+    description: [
+      "Built an automated financial analytics tool leveraging AWS infrastructure (Lambda, RDS, EC2) and Streamlit. The platform processes user bank statements to provide personalized spending insights, benchmarking, and visualization dashboards."
+    ],
+    skills: ["AWS", "Streamlit", "Financial Analytics", "Cloud Infrastructure", "Data Visualization"],
+    link: "/papers/aws-finance-analyzer.pdf"
+  },
+  {
+    id: 13,
+    title: "ESG Portfolio Optimization",
+    organization: "Project",
+    startDate: "April 2025",
+    type: "project",
+    category: ["finance", "analytics"],
+    description: [
+      "Analyzed ESG score momentum using ML (LSTM, Random Forest) for predictive financial modeling, demonstrating significant portfolio outperformance compared to traditional S&P 500 portfolios."
+    ],
+    skills: ["Python", "LSTM", "Random Forest", "Financial Analysis", "Pandas"],
+    link: "https://github.com/Anyueow/ESG-Impact-on-Portfolios"
+  },
+  {
+    id: 14,
+    title: "Index Builder: Optimizing Data Structures for Large-scale Search",
+    organization: "Research Paper",
+    startDate: "February 2025",
+    type: "research",
+    category: ["information-retrieval", "data-structures"],
+    description: [
+      "Evaluated various indexing structures (BST, AVL Trees, Hash Maps, Tries) to optimize retrieval performance on large datasets of financial articles, providing comprehensive recommendations for efficient document indexing and query handling."
+    ],
+    skills: ["Data Structures", "Hash Maps", "AVL Trees", "Information Retrieval", "Search Optimization"],
+    link: "/papers/index-builder.pdf"
+  },
+  {
+    id: 15,
+    title: "Vera: AI-Driven Dual-Filter Fashion Recommendation Engine",
+    organization: "Research Paper",
+    startDate: "April 2024",
+    type: "research",
+    category: ["recommender-systems", "sustainability"],
+    description: [
+      "Developed a recommendation system combining content-based (CNN-driven image classification) and collaborative filtering (user preference analysis) to deliver personalized fashion recommendations, promoting sustainable fashion practices and reducing wasteful consumption."
+    ],
+    skills: ["Fashion AI", "Recommender Systems", "Collaborative Filtering", "Content-based Filtering", "Sustainability"],
+    link: "/papers/vera.pdf"
+  },
+  {
+    id: 16,
+    title: "Analyzing and Predicting the Spread and Emergence of Covid-19 Variants",
+    organization: "Research Paper",
+    startDate: "April 2022",
+    type: "research",
+    category: ["epidemiology", "predictive-analytics"],
+    description: [
+      "Utilized global datasets to identify Covid-19 epicenters, predict locations likely to produce new variants, and developed a comprehensive safety rating system for international travel, integrating healthcare, vaccination data, and government response metrics."
+    ],
+    skills: ["Covid-19", "Predictive Modeling", "Epidemiology", "Public Health", "Travel Safety"],
+    link: "/papers/covid-variant-analysis.pdf"
+  },
 ];
 
-const TimelineItem = ({ item }: { item: typeof experienceData[0] }) => {
-  const [expanded, setExpanded] = useState(false);
+const Timeline = () => {
+  const [selectedTab, setSelectedTab] = useState<string>("all");
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [expandedPeriods, setExpandedPeriods] = useState<string[]>([]);
   
-  const getIcon = () => {
-    switch(item.type) {
+  // Process timeline data and group by time periods
+  const timelineData = useMemo(() => {
+    // Function to extract year from date string
+    const extractYear = (dateStr: string): number => {
+      const match = dateStr.match(/\d{4}$/);
+      return match ? parseInt(match[0]) : new Date().getFullYear();
+    };
+
+    // Add year and time period to each item
+    const itemsWithPeriods: TimelineItem[] = experienceData.map(item => {
+      const startYear = extractYear(item.startDate);
+      const endYear = item.endDate && item.endDate !== 'Present' 
+        ? extractYear(item.endDate) 
+        : new Date().getFullYear();
+      
+      return {
+        ...item,
+        year: startYear,
+        timePeriod: `${startYear}${endYear !== startYear ? ` - ${endYear}` : ''}`
+      };
+    });
+
+    // Apply filters
+    const filteredItems = itemsWithPeriods
+      .filter(item => selectedTab === "all" || item.category.includes(selectedTab))
+      .filter(item => selectedTypes.length === 0 || selectedTypes.includes(item.type));
+
+    // Group items by time periods
+    const groupedByPeriod: { [key: string]: TimelineItem[] } = {};
+    filteredItems.forEach(item => {
+      if (!item.timePeriod) return;
+      
+      if (!groupedByPeriod[item.timePeriod]) {
+        groupedByPeriod[item.timePeriod] = [];
+      }
+      groupedByPeriod[item.timePeriod].push(item);
+    });
+
+    // Sort periods chronologically (newest first)
+    const sortedPeriods = Object.keys(groupedByPeriod).sort((a, b) => {
+      const yearA = parseInt(a.split(' ')[0]);
+      const yearB = parseInt(b.split(' ')[0]);
+      return yearB - yearA;
+    });
+
+    return { groupedByPeriod, sortedPeriods };
+  }, [experienceData, selectedTab, selectedTypes]);
+
+  // Toggle expansion of a time period
+  const togglePeriod = (period: string) => {
+    setExpandedPeriods(prev => 
+      prev.includes(period) 
+        ? prev.filter(p => p !== period) 
+        : [...prev, period]
+    );
+  };
+
+  // Get icon based on item type
+  const getIcon = (type: string) => {
+    switch(type) {
       case 'professional': return <Briefcase className="h-4 w-4" />;
       case 'research': return <FileText className="h-4 w-4" />;
       case 'project': return <Star className="h-4 w-4" />;
@@ -176,88 +346,9 @@ const TimelineItem = ({ item }: { item: typeof experienceData[0] }) => {
   };
   
   return (
-    <Card className="mb-6 hover:shadow-md transition-shadow">
-      <CardHeader className="cursor-pointer" onClick={() => setExpanded(!expanded)}>
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-2 text-muted-foreground mb-1">
-              {getIcon()}
-              <span className="text-sm font-medium capitalize">{item.type}</span>
-              <span>•</span>
-              <span className="text-sm">
-                {item.startDate}{item.endDate ? ` - ${item.endDate}` : ''}
-              </span>
-            </div>
-            <CardTitle className="text-lg">{item.title}</CardTitle>
-            <CardDescription className="mt-1">
-              {item.organization}{item.location ? `, ${item.location}` : ''}
-            </CardDescription>
-          </div>
-        </div>
-      </CardHeader>
-      
-      {expanded && (
-        <>
-          <CardContent className="pt-0">
-            <ul className="list-disc pl-5 space-y-2 mb-4">
-              {item.description.map((desc, index) => (
-                <li key={index} className="text-muted-foreground">{desc}</li>
-              ))}
-            </ul>
-            
-            <div className="flex flex-wrap gap-2 mt-3">
-              {item.skills && item.skills.map((skill, index) => (
-                <Badge key={index} variant="secondary">{skill}</Badge>
-              ))}
-            </div>
-          </CardContent>
-          
-          {item.link && (
-            <CardFooter className="pt-0">
-              <a 
-                href={item.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-primary hover:underline text-sm font-medium flex items-center gap-1"
-              >
-                <FileText className="h-3 w-3" /> View {item.type === 'research' ? 'Paper' : 'Project'}
-              </a>
-            </CardFooter>
-          )}
-        </>
-      )}
-    </Card>
-  );
-};
-
-const Timeline = () => {
-  const [selectedTab, setSelectedTab] = useState<string>("all");
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  
-  const filterItems = () => {
-    return experienceData
-      .filter(item => selectedTab === "all" || item.category.includes(selectedTab))
-      .filter(item => selectedTypes.length === 0 || selectedTypes.includes(item.type))
-      .sort((a, b) => {
-        // Sort by date (assuming date format is consistent)
-        // Extract year for simplified comparison
-        const getYear = (date: string) => {
-          const match = date.match(/\d{4}$/);
-          return match ? parseInt(match[0]) : 0;
-        };
-        
-        const aYear = getYear(a.startDate);
-        const bYear = getYear(b.startDate);
-        
-        // Sort in descending order (most recent first)
-        return bYear - aYear;
-      });
-  };
-  
-  return (
     <section id="timeline" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-header text-3xl font-bold mb-8">Career Experience</h2>
+        <h2 className="section-header text-3xl font-bold mb-8">Career Experience Timeline</h2>
         
         <div className="mb-8 space-y-4">
           <div>
@@ -301,10 +392,101 @@ const Timeline = () => {
           </div>
         </div>
         
-        <div className="mt-10">
-          {filterItems().length > 0 ? (
-            filterItems().map(item => (
-              <TimelineItem key={item.id} item={item} />
+        {/* Visual Timeline */}
+        <div className="mt-10 relative">
+          {/* Timeline line */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-muted z-0"></div>
+          
+          {timelineData.sortedPeriods.length > 0 ? (
+            timelineData.sortedPeriods.map((period, index) => (
+              <div key={period} className="relative mb-12">
+                {/* Time period marker */}
+                <div className="flex items-center mb-4">
+                  <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-primary z-10 flex items-center justify-center">
+                    <CircleDot className="h-4 w-4 text-white" />
+                  </div>
+                  
+                  <div 
+                    className="ml-12 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6 bg-primary text-white px-3 py-1 rounded-md cursor-pointer hover:bg-primary/90 transition-colors flex items-center"
+                    onClick={() => togglePeriod(period)}
+                  >
+                    <span className="mr-2 font-medium">{period}</span>
+                    {expandedPeriods.includes(period) ? 
+                      <ChevronUp className="h-4 w-4" /> : 
+                      <ChevronDown className="h-4 w-4" />
+                    }
+                  </div>
+                </div>
+                
+                {/* Time period content */}
+                {expandedPeriods.includes(period) && (
+                  <div className="ml-12 md:grid md:grid-cols-2 md:gap-6">
+                    {timelineData.groupedByPeriod[period].map((item, itemIndex) => (
+                      <Card 
+                        key={item.id} 
+                        className={`mb-6 hover:shadow-md transition-shadow ${
+                          itemIndex % 2 === 0 ? "md:mr-6" : "md:ml-6"
+                        }`}
+                      >
+                        <CardHeader>
+                          <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                            {getIcon(item.type)}
+                            <span className="text-sm font-medium capitalize">{item.type}</span>
+                            <span>•</span>
+                            <span className="text-sm">
+                              {item.startDate}{item.endDate ? ` - ${item.endDate}` : ''}
+                            </span>
+                          </div>
+                          <CardTitle className="text-lg">{item.title}</CardTitle>
+                          <CardDescription className="mt-1">
+                            {item.organization}{item.location ? `, ${item.location}` : ''}
+                          </CardDescription>
+                          {item.field && (
+                            <Badge variant="outline" className="mt-2 w-fit">
+                              {item.field}
+                            </Badge>
+                          )}
+                        </CardHeader>
+                        
+                        <CardContent className="pt-0">
+                          <ul className="list-disc pl-5 space-y-2 mb-4">
+                            {item.description.map((desc, index) => (
+                              <li key={index} className="text-muted-foreground">{desc}</li>
+                            ))}
+                          </ul>
+                          
+                          <div className="flex flex-wrap gap-2 mt-3">
+                            {item.skills && item.skills.map((skill, index) => (
+                              <Badge key={index} variant="secondary">{skill}</Badge>
+                            ))}
+                          </div>
+                        </CardContent>
+                        
+                        {item.link && (
+                          <CardFooter className="pt-0">
+                            <Button 
+                              asChild 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full sm:w-auto"
+                            >
+                              <a 
+                                href={item.link} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-primary flex items-center gap-1"
+                              >
+                                <FileText className="h-4 w-4" />
+                                View {item.type === 'research' ? 'Paper' : item.type === 'project' ? 'Project' : 'Details'}
+                              </a>
+                            </Button>
+                          </CardFooter>
+                        )}
+                      </Card>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))
           ) : (
             <div className="text-center p-8 bg-secondary/20 rounded-md">
