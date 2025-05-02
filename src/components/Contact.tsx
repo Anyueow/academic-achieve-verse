@@ -1,23 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, FileText, Mail, Phone, Instagram } from 'lucide-react';
+import { Github, Linkedin, FileText, Mail, Phone, Instagram, Loader2 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, you would send the form data to a server
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    // Reset form
-    e.currentTarget.reset();
+    setIsLoading(true);
+
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = {
+      from_name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      from_email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      subject: (form.elements.namedItem('subject') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,20 +64,20 @@ const Contact = () => {
                     <label htmlFor="name" className="text-sm font-medium">
                       Name
                     </label>
-                    <Input id="name" placeholder="Your name" required />
+                    <Input id="name" name="name" placeholder="Your name" required disabled={isLoading} />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">
                       Email
                     </label>
-                    <Input id="email" type="email" placeholder="Your email" required />
+                    <Input id="email" name="email" type="email" placeholder="Your email" required disabled={isLoading} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium">
                     Subject
                   </label>
-                  <Input id="subject" placeholder="Message subject" required />
+                  <Input id="subject" name="subject" placeholder="Message subject" required disabled={isLoading} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">
@@ -57,13 +85,22 @@ const Contact = () => {
                   </label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Your message..."
                     required
                     rows={5}
+                    disabled={isLoading}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -116,7 +153,7 @@ const Contact = () => {
                     icon={<FileText className="h-5 w-5 text-primary" />}
                     title="Resume"
                     contact="Download PDF"
-                    href="/resume/Ananya Shah May 2025.pdf"
+                    href={encodeURI("/resume/Ananya Shah May 2025.pdf")}
                     isDownload
                   />
                 </div>
