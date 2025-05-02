@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -15,8 +14,10 @@ const Index = () => {
       <Header />
       <Hero />
       <About />
-      <Timeline />
+      <Projects />
+      <Research />
       <Contact />
+      <Timeline />
       <Footer />
     </div>
   );

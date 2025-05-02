@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -32,17 +31,19 @@ const About = () => {
         <h2 className="section-header text-3xl font-bold mb-8">About Me</h2>
         <div className="mb-12">
           <p className="text-lg mb-4">
-            Hi, I'm Ananya Shah, a passionate Data Scientist & Software Engineer graduating from Northeastern University with a 
-            combined degree in Data Science and Business Administration (Finance concentration) and a minor in Economics (May 2025).
+            Helooo! Thanks for visiting my site. As a data science enthusiast and UX design geek, I'm on a mission to create tech that actually makes sense to humans.
+
+            My world revolves around bridging that awkward gap between complex technology and intuitive design. 
           </p>
           <p className="text-lg mb-4">
-            I love creating impactful solutions by bridging machine learning, data analytics, finance, and human-centered design. 
-            I thrive in environments where I can leverage AI to solve complex, real-world problems and build innovative tools 
-            that enhance lives and businesses alike.
+            I've got this knack for diving headfirst into challenging projects—like FindHer, my biggest undertaking yet. As Co-Founder and CTO, I built a job-matching platform for women in India from the ground up. From spearheading MVP development to leading a team of developers, I've worn all the tech hats you can imagine!
           </p>
-        
-          <p className="text-lg mb-8">
-            Outside work, you'll find me exploring trendy speakeasies, training for a marathon, or trekking my way through nature trails. Or lowkey bingeing on netflix.
+     
+          <p className="text-lg mb-4">
+            Beyond the screen, I've raised over $30,000 through Bindu, a non-profit I co-founded to combat period poverty in India. There's something incredibly fulfilling about using my organizational skills to create positive change.
+          </p>
+          <p className="text-lg mb-4">
+            I believe in building things together—hence my "sandcastles" philosophy: never work alone as a builder! Got a wild idea or just want to geek out over the latest design trends? Let's connect and create something amazing that actually helps people live better lives!
           </p>
         </div>
 

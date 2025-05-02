@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -24,16 +23,14 @@ const Header = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-      isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-2 md:py-3 bg-white/95 border-b border-border shadow-md",
+      isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-white/95 border-b border-border shadow-md"
     )}>
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link to="/" className="text-xl md:text-2xl font-bold text-primary">
-          Ananya Shah
-        </Link>
+      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
+        
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center justify-center flex-1 space-x-6">
           <NavLink to="/#about">About</NavLink>
           <NavLink to="/#projects">Projects</NavLink>
           <NavLink to="/#research">Research</NavLink>
@@ -72,22 +69,24 @@ const Header = () => {
 };
 
 const NavLink = ({ to, children }: { to: string, children: React.ReactNode }) => (
-  <Link 
-    to={to} 
-    className="text-foreground/80 hover:text-primary font-medium transition-colors"
+  <a 
+    href={to} 
+    className="text-foreground/90 hover:text-primary font-semibold transition-colors px-2 py-1"
+    style={{ scrollBehavior: 'smooth' }}
   >
     {children}
-  </Link>
+  </a>
 );
 
 const MobileNavLink = ({ to, children, onClick }: { to: string, children: React.ReactNode, onClick: () => void }) => (
-  <Link 
-    to={to} 
-    className="text-2xl font-medium py-2 border-b border-border/30"
+  <a 
+    href={to} 
+    className="text-2xl font-semibold py-2 border-b border-border/30"
     onClick={onClick}
+    style={{ scrollBehavior: 'smooth' }}
   >
     {children}
-  </Link>
+  </a>
 );
 
 export default Header;

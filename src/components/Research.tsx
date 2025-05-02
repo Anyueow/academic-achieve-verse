@@ -26,15 +26,6 @@ const researchData = [
     "link": "/papers/LoRA_Dialect_Bias_Mitigation.pdf"
   },
   {
-    "id": 4,
-    "title": "AWS-Powered Personal Finance Analyzer (Spend Analyzer)",
-    "abstract": "Built an automated financial analytics tool leveraging AWS infrastructure (Lambda, RDS, EC2) and Streamlit. The platform processes user bank statements to provide personalized spending insights, benchmarking, and visualization dashboards.",
-    "date": "April 2025",
-    "field": "Financial Technology & Cloud Computing",
-    "keywords": ["AWS", "Streamlit", "Financial Analytics", "Cloud Infrastructure", "Data Visualization"],
-    "link": "/papers/aws-finance-analyzer.pdf"
-  },
-  {
     "id": 5,
     "title": "Index Builder: Optimizing Data Structures for Large-scale Search",
     "abstract": "Evaluated various indexing structures (BST, AVL Trees, Hash Maps, Tries) to optimize retrieval performance on large datasets of financial articles, providing comprehensive recommendations for efficient document indexing and query handling.",
@@ -52,17 +43,9 @@ const researchData = [
     "keywords": ["Fashion AI", "Recommender Systems", "Collaborative Filtering", "Content-based Filtering", "Sustainability"],
     "link": "/papers/vera.pdf"
   },
+ 
   {
     "id": 7,
-    "title": "Analyzing and Predicting the Spread and Emergence of Covid-19 Variants",
-    "abstract": "Utilized global datasets to identify Covid-19 epicenters, predict locations likely to produce new variants, and developed a comprehensive safety rating system for international travel, integrating healthcare, vaccination data, and government response metrics.",
-    "date": "April 2022",
-    "field": "Epidemiology & Predictive Analytics",
-    "keywords": ["Covid-19", "Predictive Modeling", "Epidemiology", "Public Health", "Travel Safety"],
-    "link": "/papers/covid-variant-analysis.pdf"
-  }, 
-  {
-    "id": 8,
     "title": "Flooding Remediation through Tree-Planting Initiatives",
     "abstract": "Conducted a detailed data-driven study of flooding along Mass Ave, Boston, utilizing 311 Service Requests, rainfall data, sewer infrastructure analysis, and urban forestry insights. Proposed optimal tree-planting sites to mitigate flood risks, enhance community resilience, and improve environmental quality, supported by interactive visualizations and comprehensive spatial analysis.",
     "date": "June 2023",

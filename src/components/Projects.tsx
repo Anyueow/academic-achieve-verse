@@ -65,7 +65,25 @@ const projectsData = [
     technologies: ["Python", "LSTM", "Random Forest", "Financial Analysis", "Pandas"],
     category: "finance",
     github: "https://github.com/Anyueow/ESG-Impact-on-Portfolios",
-  }
+  }, 
+  {
+    id: 7,
+    title: "Analyzing and Predicting the Spread and Emergence of Covid-19 Variants",
+    description: "Utilized global datasets to identify Covid-19 epicenters, predict locations likely to produce new variants, and developed a comprehensive safety rating system for international travel, integrating healthcare, vaccination data, and government response metrics.",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&auto=format&fit=crop",
+    technologies: ["Python", "Plotly", "geopandas", "pandas", "numpy"],
+    category: "data-science",
+    link: "/papers/covid-variant-analysis.pdf"
+  }, 
+  {
+    id: 8,
+    title: "AWS-Powered Personal Finance Analyzer (Spend Analyzer)",
+    description: "Built an automated financial analytics tool leveraging AWS infrastructure (Lambda, RDS, EC2) and Streamlit. The platform processes user bank statements to provide personalized spending insights, benchmarking, and visualization dashboards.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop",
+    technologies: ["AWS", "Streamlit", "Financial Analytics", "Cloud Infrastructure", "Data Visualization"],
+    category: "software",
+    link: "/papers/aws-finance-analyzer.pdf"
+  },
 ];
 
 const Projects = () => {

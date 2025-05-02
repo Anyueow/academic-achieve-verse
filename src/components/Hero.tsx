@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from 'lucide-react';
@@ -12,16 +11,26 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary to-background pt-16">
-      <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary to-background pt-12 overflow-hidden">
+      {/* Fullscreen Hero Collage Image */}
+      <img
+        src="/hero-collage.png"
+        alt="Ananya Shah - collage of work and community moments"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        style={{ boxShadow: 'none', border: 'none', background: 'none', pointerEvents: 'none' }}
+      />
+      {/* Optional overlay for contrast */}
+      <div className="absolute inset-0 bg-background/80 z-10" />
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-24 relative z-20">
         <div className="flex flex-col items-center text-center animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
             <span className="text-foreground">Ananya</span>
             <span className="text-primary"> Shah</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-2">
             Data Scientist & Software Engineer | Northeastern University
           </p>
+        
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button size="lg" onClick={() => scrollToSection('projects')}>
               View Projects
