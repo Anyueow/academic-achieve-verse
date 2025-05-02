@@ -17,7 +17,7 @@ const Hero = () => {
         src="/hero-collage.png"
         alt="Ananya Shah - collage of work and community moments"
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
-        style={{ boxShadow: 'none', border: 'none', background: 'none', pointerEvents: 'none' }}
+        style={{ boxShadow: 'none', border: 'none', background: 'none', pointerEvents: 'none', opacity: 0.25 }}
       />
       {/* Optional overlay for contrast */}
       <div className="absolute inset-0 bg-background/80 z-10" />
