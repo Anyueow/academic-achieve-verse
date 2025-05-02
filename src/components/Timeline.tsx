@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -38,7 +37,7 @@ interface TimelineItem {
 }
 
 // Combine experience, research and project data
-const experienceData = [
+const experienceData: TimelineItem[] = [
   {
     id: 1,
     title: "Strategy & Analytics Analyst",
@@ -46,7 +45,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "Sep 2024",
     endDate: "Jan 2025",
-    type: "professional",
+    type: "professional" as const,
     category: ["data-science", "analytics"],
     description: [
       "Delivered strategic insights by analyzing large-scale datasets using Python and Alteryx for Fortune 500 clients.",
@@ -62,7 +61,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "Jan 2024",
     endDate: "Present",
-    type: "professional",
+    type: "professional" as const,
     category: ["finance", "analytics"],
     description: [
       "Developed a Python-driven algorithmic matching tool connecting investors and entrepreneurs, significantly optimizing due diligence workflows.",
@@ -78,7 +77,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "Oct 2024",
     endDate: "Present",
-    type: "leadership",
+    type: "leadership" as const,
     category: ["ai", "community"],
     description: [
       "Led the organization of high-impact community events such as \"Let's Ship Using AI,\" emphasizing practical, hands-on experiences with Generative AI.",
@@ -94,7 +93,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "Jan 2023",
     endDate: "Nov 2023",
-    type: "professional",
+    type: "professional" as const,
     category: ["software-engineering", "leadership"],
     description: [
       "Developed a robust MVP leveraging the MERN stack, ensuring scalable infrastructure with AWS, Netlify, and Render, maintaining 99.9% uptime.",
@@ -110,7 +109,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "Jul 2022",
     endDate: "Dec 2022",
-    type: "professional",
+    type: "professional" as const,
     category: ["finance", "analytics"],
     description: [
       "Engineered Excel-based automation, dramatically streamlining business development intake processes with an 80% efficiency gain.",
@@ -125,7 +124,7 @@ const experienceData = [
     location: "Hyderabad, India",
     startDate: "2020",
     endDate: "2022",
-    type: "leadership",
+    type: "leadership" as const,
     category: ["social-impact", "leadership"],
     description: [
       "Founded and led an NGO dedicated to combating period poverty, successfully raising over $30,000 and impacting more than 7,000 women across multiple communities.",
@@ -141,7 +140,7 @@ const experienceData = [
     location: "Boston, MA",
     startDate: "2021",
     endDate: "2023",
-    type: "professional",
+    type: "professional" as const,
     category: ["education", "data-science"],
     description: [
       "Delivered comprehensive support and guidance to students in Data Science and Business Calculus courses.",
@@ -154,7 +153,7 @@ const experienceData = [
     title: "Flooding Remediation through Tree-Planting Initiatives",
     organization: "Research Paper",
     startDate: "June 2023",
-    type: "research",
+    type: "research" as const,
     category: ["environmental-analytics"],
     description: [
       "Conducted a detailed data-driven study of flooding along Mass Ave, Boston, utilizing 311 Service Requests, rainfall data, sewer infrastructure analysis, and urban forestry insights.",
@@ -168,7 +167,7 @@ const experienceData = [
     title: "Canvas-LinkedIn Profile Analyzer",
     organization: "Project",
     startDate: "April 2025",
-    type: "project",
+    type: "project" as const,
     category: ["ai", "software-engineering"],
     description: [
       "AI-driven team formation tool linking Canvas LMS & LinkedIn",
@@ -183,7 +182,7 @@ const experienceData = [
     title: "LoRA Dialect Bias Mitigation",
     organization: "Research Paper",
     startDate: "April 2025",
-    type: "research",
+    type: "research" as const,
     category: ["ai", "nlp", "ethics"],
     description: [
       "Implemented parameter-efficient fine-tuning using Low-Rank Adaptation (LoRA) to mitigate covert dialect bias in LLMs, specifically targeting African American English (AAE).",
@@ -197,7 +196,7 @@ const experienceData = [
     title: "CNN & Time Series Hybrid Models for Fashion Trend Forecasting",
     organization: "Research Paper",
     startDate: "April 2025",
-    type: "research",
+    type: "research" as const,
     category: ["computer-vision", "time-series"],
     description: [
       "A novel approach combining Convolutional Neural Networks with LSTM time-series analysis to predict fashion trends by analyzing runway images alongside temporal data from Google Trends, providing actionable insights for inventory optimization."
@@ -210,7 +209,7 @@ const experienceData = [
     title: "AWS-Powered Personal Finance Analyzer (Spend Analyzer)",
     organization: "Project",
     startDate: "April 2025",
-    type: "project",
+    type: "project" as const,
     category: ["finance", "cloud-computing"],
     description: [
       "Built an automated financial analytics tool leveraging AWS infrastructure (Lambda, RDS, EC2) and Streamlit. The platform processes user bank statements to provide personalized spending insights, benchmarking, and visualization dashboards."
@@ -223,7 +222,7 @@ const experienceData = [
     title: "ESG Portfolio Optimization",
     organization: "Project",
     startDate: "April 2025",
-    type: "project",
+    type: "project" as const,
     category: ["finance", "analytics"],
     description: [
       "Analyzed ESG score momentum using ML (LSTM, Random Forest) for predictive financial modeling, demonstrating significant portfolio outperformance compared to traditional S&P 500 portfolios."
@@ -236,7 +235,7 @@ const experienceData = [
     title: "Index Builder: Optimizing Data Structures for Large-scale Search",
     organization: "Research Paper",
     startDate: "February 2025",
-    type: "research",
+    type: "research" as const,
     category: ["information-retrieval", "data-structures"],
     description: [
       "Evaluated various indexing structures (BST, AVL Trees, Hash Maps, Tries) to optimize retrieval performance on large datasets of financial articles, providing comprehensive recommendations for efficient document indexing and query handling."
@@ -248,8 +247,8 @@ const experienceData = [
     id: 15,
     title: "Vera: AI-Driven Dual-Filter Fashion Recommendation Engine",
     organization: "Research Paper",
-    startDate: "April 2024",
-    type: "research",
+    startDate: "April 2025",
+    type: "research" as const,
     category: ["recommender-systems", "sustainability"],
     description: [
       "Developed a recommendation system combining content-based (CNN-driven image classification) and collaborative filtering (user preference analysis) to deliver personalized fashion recommendations, promoting sustainable fashion practices and reducing wasteful consumption."
@@ -262,7 +261,7 @@ const experienceData = [
     title: "Analyzing and Predicting the Spread and Emergence of Covid-19 Variants",
     organization: "Research Paper",
     startDate: "April 2022",
-    type: "research",
+    type: "research" as const,
     category: ["epidemiology", "predictive-analytics"],
     description: [
       "Utilized global datasets to identify Covid-19 epicenters, predict locations likely to produce new variants, and developed a comprehensive safety rating system for international travel, integrating healthcare, vaccination data, and government response metrics."
@@ -335,13 +334,18 @@ const Timeline = () => {
   };
 
   // Get icon based on item type
-  const getIcon = (type: string) => {
-    switch(type) {
-      case 'professional': return <Briefcase className="h-4 w-4" />;
-      case 'research': return <FileText className="h-4 w-4" />;
-      case 'project': return <Star className="h-4 w-4" />;
-      case 'leadership': return <Users className="h-4 w-4" />;
-      default: return <Calendar className="h-4 w-4" />;
+  const getIcon = (type: 'professional' | 'research' | 'project' | 'leadership') => {
+    switch (type) {
+      case 'professional':
+        return <Briefcase className="h-4 w-4" />;
+      case 'research':
+        return <FileText className="h-4 w-4" />;
+      case 'project':
+        return <Star className="h-4 w-4" />;
+      case 'leadership':
+        return <Users className="h-4 w-4" />;
+      default:
+        return <CircleDot className="h-4 w-4" />;
     }
   };
   
