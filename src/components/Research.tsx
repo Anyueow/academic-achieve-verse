@@ -6,43 +6,73 @@ import { Button } from "@/components/ui/button";
 import { FileText, Calendar } from 'lucide-react';
 
 const researchData = [
+
   {
-    id: 1,
-    title: "LoRA Dialect Bias Mitigation in Large Language Models",
-    abstract: "This research reduces hidden dialect bias in Large Language Models (Meta-LLaMA-3) using Low-Rank Adaptation (LoRA) techniques, improving fairness in AI decision-making processes like resume screening and hiring scenarios.",
-    date: "January 2025",
-    field: "Natural Language Processing",
-    keywords: ["LLMs", "Bias Mitigation", "LoRA Fine-tuning", "Fairness in AI", "Dialect Debiasing"],
-    link: "/papers/lora-bias-mitigation.pdf"
+    "id": 1,
+    "title": "CNN & Time Series Hybrid Models for Fashion Trend Forecasting",
+    "abstract": "A novel approach combining Convolutional Neural Networks with LSTM time-series analysis to predict fashion trends by analyzing runway images alongside temporal data from Google Trends, providing actionable insights for inventory optimization.",
+    "date": "April 2025",
+    "field": "Computer Vision & Time Series Analysis",
+    "keywords": ["CNN", "LSTM", "Fashion Forecasting", "Computer Vision", "Time Series Analysis"],
+    "link": "/papers/fashion-forecasting.pdf"
   },
   {
-    id: 2,
-    title: "CNN & Time Series Hybrid Models for Fashion Trend Forecasting",
-    abstract: "A novel approach combining Convolutional Neural Networks with LSTM time-series analysis to predict fashion trends by analyzing runway images alongside temporal data from Google Trends, providing actionable insights for inventory optimization.",
-    date: "November 2024",
-    field: "Computer Vision & Time Series Analysis",
-    keywords: ["CNN", "LSTM", "Fashion Forecasting", "Computer Vision", "Time Series Analysis"],
-    link: "/papers/fashion-forecasting.pdf"
+    "id": 3,
+    "title": "LoRA-based Dialect Bias Mitigation in Large Language Models",
+    "abstract": "Implemented parameter-efficient fine-tuning using Low-Rank Adaptation (LoRA) to mitigate covert dialect bias in LLMs, specifically targeting African American English (AAE). Demonstrated significant fairness improvements in NLP-driven tasks.",
+    "date": "April 2025",
+    "field": "Natural Language Processing & AI Ethics",
+    "keywords": ["LoRA", "Dialect Bias", "NLP", "Fairness in AI", "Large Language Models"],
+    "link": "/papers/LoRA_Dialect_Bias_Mitigation.pdf"
   },
   {
-    id: 3,
-    title: "ESG Portfolio Optimization & Momentum-Based Prediction",
-    abstract: "This study analyzes ESG score momentum using advanced machine learning techniques including LSTM and Random Forest for predictive financial modeling, demonstrating significant portfolio outperformance compared to traditional S&P 500 portfolios.",
-    date: "August 2024",
-    field: "Financial Machine Learning",
-    keywords: ["ESG Investing", "Portfolio Optimization", "LSTM", "Random Forest", "Financial Modeling"],
-    link: "/papers/esg-portfolio-optimization.pdf"
+    "id": 4,
+    "title": "AWS-Powered Personal Finance Analyzer (Spend Analyzer)",
+    "abstract": "Built an automated financial analytics tool leveraging AWS infrastructure (Lambda, RDS, EC2) and Streamlit. The platform processes user bank statements to provide personalized spending insights, benchmarking, and visualization dashboards.",
+    "date": "April 2025",
+    "field": "Financial Technology & Cloud Computing",
+    "keywords": ["AWS", "Streamlit", "Financial Analytics", "Cloud Infrastructure", "Data Visualization"],
+    "link": "/papers/aws-finance-analyzer.pdf"
   },
   {
-    id: 4,
-    title: "AI-Driven Team Formation: Canvas-LinkedIn Profile Integration",
-    abstract: "An exploration of AI-driven team formation technologies integrating Canvas LMS and LinkedIn data to improve student compatibility through automated profile scraping and analysis, incorporating organizational psychology frameworks from Google Aristotle and MIT Human Dynamics.",
-    date: "May 2024",
-    field: "Human-Computer Interaction",
-    keywords: ["Team Formation", "Profile Analysis", "Organizational Psychology", "Educational Technology", "AI Integration"],
-    link: "/papers/team-formation.pdf"
+    "id": 5,
+    "title": "Index Builder: Optimizing Data Structures for Large-scale Search",
+    "abstract": "Evaluated various indexing structures (BST, AVL Trees, Hash Maps, Tries) to optimize retrieval performance on large datasets of financial articles, providing comprehensive recommendations for efficient document indexing and query handling.",
+    "date": "February 2025",
+    "field": "Information Retrieval & Data Structures",
+    "keywords": ["Data Structures", "Hash Maps", "AVL Trees", "Information Retrieval", "Search Optimization"],
+    "link": "/papers/index-builder.pdf"
+  },
+  {
+    "id": 6,
+    "title": "Vera: AI-Driven Dual-Filter Fashion Recommendation Engine",
+    "abstract": "Developed a recommendation system combining content-based (CNN-driven image classification) and collaborative filtering (user preference analysis) to deliver personalized fashion recommendations, promoting sustainable fashion practices and reducing wasteful consumption.",
+    "date": "April 2024",
+    "field": "Recommender Systems & Sustainability",
+    "keywords": ["Fashion AI", "Recommender Systems", "Collaborative Filtering", "Content-based Filtering", "Sustainability"],
+    "link": "/papers/vera.pdf"
+  },
+  {
+    "id": 7,
+    "title": "Analyzing and Predicting the Spread and Emergence of Covid-19 Variants",
+    "abstract": "Utilized global datasets to identify Covid-19 epicenters, predict locations likely to produce new variants, and developed a comprehensive safety rating system for international travel, integrating healthcare, vaccination data, and government response metrics.",
+    "date": "April 2022",
+    "field": "Epidemiology & Predictive Analytics",
+    "keywords": ["Covid-19", "Predictive Modeling", "Epidemiology", "Public Health", "Travel Safety"],
+    "link": "/papers/covid-variant-analysis.pdf"
+  }, 
+  {
+    "id": 8,
+    "title": "Flooding Remediation through Tree-Planting Initiatives",
+    "abstract": "Conducted a detailed data-driven study of flooding along Mass Ave, Boston, utilizing 311 Service Requests, rainfall data, sewer infrastructure analysis, and urban forestry insights. Proposed optimal tree-planting sites to mitigate flood risks, enhance community resilience, and improve environmental quality, supported by interactive visualizations and comprehensive spatial analysis.",
+    "date": "June 2023",
+    "field": "Urban Data Science & Environmental Analytics",
+    "keywords": ["Flood Mitigation", "Urban Forestry", "Spatial Analysis", "Interactive Visualization", "Environmental Resilience"],
+    "link": "/papers/flooding-remediation.pdf"
   }
+  
 ];
+
 
 const Research = () => {
   return (
