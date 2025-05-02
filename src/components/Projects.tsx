@@ -9,62 +9,62 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const projectsData = [
   {
     id: 1,
-    title: "Machine Learning Classifier",
-    description: "A classification model that identifies and categorizes textual data using natural language processing techniques.",
+    title: "Canvas-LinkedIn Profile Analyzer",
+    description: "AI-driven team formation tool linking Canvas LMS & LinkedIn, improving student compatibility using automated profile scraping & analysis. Integrates frameworks from Google Aristotle and MIT Human Dynamics.",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&auto=format&fit=crop",
-    technologies: ["Python", "Scikit-learn", "NLTK", "Pandas"],
+    technologies: ["Python", "Machine Learning", "NLP", "Canvas API", "LinkedIn API"],
     category: "data-science",
-    github: "https://github.com/yourusername/ml-classifier",
+    github: "https://github.com/Anyueow/linkedin-analyzer",
     demo: "https://example.com/demo"
   },
   {
     id: 2,
-    title: "Student Information System",
-    description: "A comprehensive system for managing student records, course enrollments, and academic performance tracking.",
+    title: "LoRA Dialect Bias Mitigation",
+    description: "Reduced hidden dialect bias in Large Language Models (Meta-LLaMA-3) using LoRA adapters, improving fairness in AI decision-making for resume screening and hiring scenarios.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop",
-    technologies: ["Java", "Spring Boot", "MySQL", "React"],
-    category: "software",
-    github: "https://github.com/yourusername/student-system",
+    technologies: ["PyTorch", "LLMs", "NLP", "LoRA", "Fairness Metrics"],
+    category: "data-science",
+    github: "https://github.com/Anyueow/lora-debiasing-llms",
     demo: "https://example.com/demo"
   },
   {
     id: 3,
-    title: "E-commerce Data Analysis",
-    description: "Statistical analysis of e-commerce transaction data to identify customer behavior patterns and optimize marketing strategies.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop",
-    technologies: ["R", "ggplot2", "dplyr", "Tableau"],
+    title: "CNN & Time Series Fashion Forecasting",
+    description: "Built CNN-LSTM hybrid model predicting fashion trends using runway images and Google Trends data, providing actionable insights for inventory optimization and consumer behavior analysis.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop",
+    technologies: ["TensorFlow", "CNN", "LSTM", "Computer Vision", "Time Series"],
     category: "data-science",
-    github: "https://github.com/yourusername/ecommerce-analysis",
+    github: "https://github.com/Anyueow/cnn-fashion-predictor",
     demo: "https://example.com/demo"
   },
   {
     id: 4,
-    title: "Inventory Management System",
-    description: "A web-based application for real-time inventory tracking, order management, and sales reporting.",
+    title: "Spend Analyzer (AWS/Streamlit)",
+    description: "Automated finance analysis tool processing user bank statements via AWS Lambda and S3, visualizing spending trends and personalized financial insights through Streamlit.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop",
-    technologies: ["JavaScript", "Node.js", "MongoDB", "Express"],
+    technologies: ["Python", "AWS Lambda", "S3", "Streamlit", "Data Visualization"],
     category: "software",
-    github: "https://github.com/yourusername/inventory-system",
+    github: "https://github.com/Anyueow/spend-analyzer",
     demo: "https://example.com/demo"
   },
   {
     id: 5,
-    title: "Smart Home IoT Network",
-    description: "A system of interconnected IoT devices for home automation, featuring centralized control and monitoring capabilities.",
+    title: "FindHer Web Application",
+    description: "Developed scalable MVP on MERN stack for FindHer, a platform connecting users with resources. Led a 4-person developer team achieving 99.9% uptime and reduced sprint cycles by 25%.",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&auto=format&fit=crop",
-    technologies: ["Python", "Raspberry Pi", "MQTT", "Node.js"],
-    category: "iot",
-    github: "https://github.com/yourusername/smart-home",
+    technologies: ["MongoDB", "Express", "React", "Node.js", "AWS"],
+    category: "software",
+    github: "https://github.com/Anyueow/findher",
     demo: "https://example.com/demo"
   },
   {
     id: 6,
-    title: "Financial Market Predictor",
-    description: "An algorithm that analyzes historical market data to predict future trends using time series forecasting methods.",
+    title: "ESG Portfolio Optimization",
+    description: "Analyzed ESG score momentum using ML (LSTM, Random Forest) for predictive financial modeling, demonstrating significant portfolio outperformance compared to traditional S&P 500 portfolios.",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop",
-    technologies: ["Python", "TensorFlow", "Pandas", "Matplotlib"],
-    category: "data-science",
-    github: "https://github.com/yourusername/market-predictor",
+    technologies: ["Python", "LSTM", "Random Forest", "Financial Analysis", "Pandas"],
+    category: "finance",
+    github: "https://github.com/Anyueow/esg-portfolio",
     demo: "https://example.com/demo"
   }
 ];
@@ -79,15 +79,15 @@ const Projects = () => {
   return (
     <section id="projects" className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-header text-3xl font-bold mb-8">Class Projects</h2>
+        <h2 className="section-header text-3xl font-bold mb-8">Portfolio Projects</h2>
         
         <Tabs defaultValue="all" className="w-full mb-8" onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
             <TabsList>
               <TabsTrigger value="all">All Projects</TabsTrigger>
               <TabsTrigger value="software">Software Development</TabsTrigger>
-              <TabsTrigger value="data-science">Data Science</TabsTrigger>
-              <TabsTrigger value="iot">IoT</TabsTrigger>
+              <TabsTrigger value="data-science">Data Science & ML</TabsTrigger>
+              <TabsTrigger value="finance">Finance</TabsTrigger>
             </TabsList>
           </div>
 
@@ -100,7 +100,7 @@ const Projects = () => {
           <TabsContent value="data-science" className="mt-0">
             <ProjectGrid projects={filteredProjects} />
           </TabsContent>
-          <TabsContent value="iot" className="mt-0">
+          <TabsContent value="finance" className="mt-0">
             <ProjectGrid projects={filteredProjects} />
           </TabsContent>
         </Tabs>

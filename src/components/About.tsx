@@ -4,10 +4,26 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   const skills = [
-    { category: "Programming", items: ["Python", "JavaScript", "Java", "C++", "R"] },
-    { category: "Web Development", items: ["React", "Node.js", "HTML/CSS", "Vue.js"] },
-    { category: "Data Science", items: ["Machine Learning", "Data Analysis", "Statistical Modeling", "MATLAB"] },
-    { category: "Tools & Platforms", items: ["Git", "Docker", "AWS", "Google Cloud", "Jupyter"] }
+    { 
+      category: "Programming & Frameworks", 
+      items: ["Python", "Java", "JavaScript", "TypeScript", "React", "Vue.js", "MERN Stack"] 
+    },
+    { 
+      category: "Machine Learning & NLP", 
+      items: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "NLP", "CNNs", "LSTMs", "RAG Models"] 
+    },
+    { 
+      category: "Cloud & Data Infrastructure", 
+      items: ["AWS", "Snowflake", "Netlify", "Heroku", "Streamlit", "Docker", "Kubernetes"] 
+    },
+    { 
+      category: "Data Visualization", 
+      items: ["Tableau", "PowerBI", "Alteryx", "Pandas", "Matplotlib", "Plotly"] 
+    },
+    { 
+      category: "Financial Modeling", 
+      items: ["ESG Analysis", "Stock Prediction", "LSTM Modeling", "Portfolio Optimization"] 
+    }
   ];
 
   return (
@@ -17,19 +33,21 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
             <p className="text-lg mb-4">
-              I am a passionate computer science student with interests spanning software development, 
-              data analysis, and machine learning. My academic journey has allowed me to explore various domains 
-              and develop projects that solve real-world problems.
+              Hi, I'm Ananya Shah, a passionate Data Scientist & Software Engineer graduating from Northeastern University with a 
+              combined degree in Data Science and Business Administration (Finance concentration) and a minor in Economics (May 2025).
             </p>
             <p className="text-lg mb-4">
-              Throughout my academic career, I've taken on challenging projects that have strengthened my technical skills 
-              and expanded my knowledge base. I enjoy collaborating with peers and professors on research initiatives 
-              that push the boundaries of what's possible with technology.
+              I love creating impactful solutions by bridging machine learning, data analytics, finance, and human-centered design. 
+              I thrive in environments where I can leverage AI to solve complex, real-world problems and build innovative tools 
+              that enhance lives and businesses alike.
+            </p>
+            <p className="text-lg mb-4">
+              Currently studying at Northeastern University's Khoury College of Computer Sciences with a GPA of 3.8, my coursework includes 
+              Machine Learning, Large Scale Information Retrieval, Machine Learning in Finance, and HCI in NLP.
             </p>
             <p className="text-lg">
-              This portfolio showcases selected class projects and research papers that represent my academic achievements 
-              and technical abilities. Feel free to explore my work and get in touch if you'd like to discuss potential 
-              collaborations or opportunities.
+              Outside work, you'll find me exploring trendy cafés, advocating for animal rights, or trekking my way through nature trails. 
+              Always curious, forever exploring. 🌎✨
             </p>
           </div>
           <div>

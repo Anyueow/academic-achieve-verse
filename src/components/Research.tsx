@@ -8,39 +8,39 @@ import { FileText, Calendar } from 'lucide-react';
 const researchData = [
   {
     id: 1,
-    title: "Optimization Algorithms for Resource Allocation in Cloud Computing Environments",
-    abstract: "This paper examines novel optimization techniques for allocating computational resources in multi-tenant cloud environments, focusing on efficiency and cost-effectiveness.",
-    date: "April 2025",
-    field: "Cloud Computing",
-    keywords: ["Resource Allocation", "Cloud Computing", "Optimization Algorithms", "Multi-tenant Systems"],
-    link: "/papers/cloud-resource-allocation.pdf"
+    title: "LoRA Dialect Bias Mitigation in Large Language Models",
+    abstract: "This research reduces hidden dialect bias in Large Language Models (Meta-LLaMA-3) using Low-Rank Adaptation (LoRA) techniques, improving fairness in AI decision-making processes like resume screening and hiring scenarios.",
+    date: "January 2025",
+    field: "Natural Language Processing",
+    keywords: ["LLMs", "Bias Mitigation", "LoRA Fine-tuning", "Fairness in AI", "Dialect Debiasing"],
+    link: "/papers/lora-bias-mitigation.pdf"
   },
   {
     id: 2,
-    title: "Natural Language Processing Techniques for Sentiment Analysis in Social Media",
-    abstract: "An investigation into the application of machine learning and neural networks for analyzing sentiment patterns across various social media platforms.",
-    date: "January 2025",
-    field: "Natural Language Processing",
-    keywords: ["NLP", "Sentiment Analysis", "Social Media", "Machine Learning"],
-    link: "/papers/nlp-sentiment-analysis.pdf"
+    title: "CNN & Time Series Hybrid Models for Fashion Trend Forecasting",
+    abstract: "A novel approach combining Convolutional Neural Networks with LSTM time-series analysis to predict fashion trends by analyzing runway images alongside temporal data from Google Trends, providing actionable insights for inventory optimization.",
+    date: "November 2024",
+    field: "Computer Vision & Time Series Analysis",
+    keywords: ["CNN", "LSTM", "Fashion Forecasting", "Computer Vision", "Time Series Analysis"],
+    link: "/papers/fashion-forecasting.pdf"
   },
   {
     id: 3,
-    title: "Security Vulnerabilities in Internet of Things Networks: A Comparative Study",
-    abstract: "This research identifies and analyzes common security vulnerabilities in IoT networks, evaluating different mitigation strategies and their effectiveness.",
-    date: "October 2024",
-    field: "Cybersecurity",
-    keywords: ["IoT Security", "Network Vulnerabilities", "Cybersecurity", "Risk Assessment"],
-    link: "/papers/iot-security.pdf"
+    title: "ESG Portfolio Optimization & Momentum-Based Prediction",
+    abstract: "This study analyzes ESG score momentum using advanced machine learning techniques including LSTM and Random Forest for predictive financial modeling, demonstrating significant portfolio outperformance compared to traditional S&P 500 portfolios.",
+    date: "August 2024",
+    field: "Financial Machine Learning",
+    keywords: ["ESG Investing", "Portfolio Optimization", "LSTM", "Random Forest", "Financial Modeling"],
+    link: "/papers/esg-portfolio-optimization.pdf"
   },
   {
     id: 4,
-    title: "Designing Accessible User Interfaces for Educational Applications",
-    abstract: "A study on implementing accessibility standards in educational software to enhance usability for users with diverse needs and abilities.",
-    date: "July 2024",
+    title: "AI-Driven Team Formation: Canvas-LinkedIn Profile Integration",
+    abstract: "An exploration of AI-driven team formation technologies integrating Canvas LMS and LinkedIn data to improve student compatibility through automated profile scraping and analysis, incorporating organizational psychology frameworks from Google Aristotle and MIT Human Dynamics.",
+    date: "May 2024",
     field: "Human-Computer Interaction",
-    keywords: ["Accessibility", "UI Design", "Educational Technology", "Inclusive Design"],
-    link: "/papers/accessible-ui.pdf"
+    keywords: ["Team Formation", "Profile Analysis", "Organizational Psychology", "Educational Technology", "AI Integration"],
+    link: "/papers/team-formation.pdf"
   }
 ];
 

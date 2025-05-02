@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, FileText, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, FileText, Mail, Phone, Instagram } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -78,14 +78,14 @@ const Contact = () => {
                   <ContactItem 
                     icon={<Mail className="h-5 w-5 text-primary" />}
                     title="Email"
-                    contact="contact@example.com"
-                    href="mailto:contact@example.com"
+                    contact="shah.anan@northeastern.edu"
+                    href="mailto:shah.anan@northeastern.edu"
                   />
                   <ContactItem 
                     icon={<Phone className="h-5 w-5 text-primary" />}
                     title="Phone"
-                    contact="(123) 456-7890"
-                    href="tel:+11234567890"
+                    contact="Upon Request"
+                    href="#"
                   />
                 </div>
               </CardContent>
@@ -98,14 +98,20 @@ const Contact = () => {
                   <ContactItem 
                     icon={<Github className="h-5 w-5 text-primary" />}
                     title="GitHub"
-                    contact="github.com/yourusername"
-                    href="https://github.com/yourusername"
+                    contact="github.com/Anyueow"
+                    href="https://github.com/Anyueow"
                   />
                   <ContactItem 
                     icon={<Linkedin className="h-5 w-5 text-primary" />}
                     title="LinkedIn"
-                    contact="linkedin.com/in/yourusername"
-                    href="https://linkedin.com/in/yourusername"
+                    contact="linkedin.com/in/ananya-shah"
+                    href="https://linkedin.com/in/ananya-shah-85372918a"
+                  />
+                  <ContactItem 
+                    icon={<Instagram className="h-5 w-5 text-primary" />}
+                    title="Instagram"
+                    contact="instagram.com/bindu_org"
+                    href="https://instagram.com/bindu_org"
                   />
                   <ContactItem 
                     icon={<FileText className="h-5 w-5 text-primary" />}
