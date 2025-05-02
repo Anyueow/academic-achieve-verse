@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, FileText, Mail, Instagram, GraduationCap } from 'lucide-react';
@@ -24,7 +23,7 @@ const Footer = () => {
               <SocialLink href="https://github.com/Anyueow" icon={<Github className="h-5 w-5" />} label="GitHub" />
               <SocialLink href="https://linkedin.com/in/ananya-shah-85372918a" icon={<Linkedin className="h-5 w-5" />} label="LinkedIn" />
               <SocialLink href="https://instagram.com/bindu_org" icon={<Instagram className="h-5 w-5" />} label="Instagram" />
-              <SocialLink href="/resume.pdf" icon={<FileText className="h-5 w-5" />} label="Resume" />
+              <SocialLink href="/resume/Ananya Shah May 2025.pdf" icon={<FileText className="h-5 w-5" />} label="Resume" />
               <SocialLink href="mailto:shah.anan@northeastern.edu" icon={<Mail className="h-5 w-5" />} label="Email" />
             </div>
             <p className="text-sm text-muted-foreground">

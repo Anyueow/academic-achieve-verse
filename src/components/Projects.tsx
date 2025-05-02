@@ -14,7 +14,7 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&auto=format&fit=crop",
     technologies: ["Python", "Machine Learning", "NLP", "Canvas API", "LinkedIn API"],
     category: "data-science",
-    github: "https://github.com/Anyueow/linkedin-analyzer",
+    github: "https://github.com/Anyueow/group-optimizer",
 
   },
   {
@@ -34,7 +34,7 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop",
     technologies: ["TensorFlow", "CNN", "LSTM", "Computer Vision", "Time Series"],
     category: "data-science",
-    github: "https://github.com/Anyueow/FashionTrendAnalyzer2.0r",
+    github: "https://github.com/Anyueow/FashionTrendAnalyzer2.0",
 
   },
   {
@@ -84,6 +84,28 @@ const projectsData = [
     category: "software",
     link: "/papers/aws-finance-analyzer.pdf"
   },
+  {
+    id: 9,
+    title: "Simple RAG & Ingestion Pipeline",
+    description: "Local Retrieval‑Augmented Generation system that ingests DS4300 course notes, chunks and embeds text (MiniLM, MPNet, Nomic), stores vectors in Redis / Qdrant / Chroma, and serves context‑aware answers via Ollama‑hosted Mistral & Qwen models. Includes a benchmarking suite to compare chunk sizes, embedding models, vector DBs, and LLM prompts with interactive Plotly dashboards.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600",
+    technologies: [
+      "Python",
+      "LangChain",
+      "Ollama",
+      "Mistral",
+      "Qwen‑7B",
+      "Redis",
+      "Qdrant",
+      "Chroma",
+      "SentenceTransformers",
+      "Plotly",
+      "Pandas"
+    ],
+    category: "software",
+    link: "https://github.com/Anyueow/SimpleRAGandIngest"
+  }
+  
 ];
 
 const Projects = () => {

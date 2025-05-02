@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -117,7 +116,7 @@ const Contact = () => {
                     icon={<FileText className="h-5 w-5 text-primary" />}
                     title="Resume"
                     contact="Download PDF"
-                    href="/resume.pdf"
+                    href="/resume/Ananya Shah May 2025.pdf"
                     isDownload
                   />
                 </div>
