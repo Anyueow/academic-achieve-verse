@@ -41,13 +41,9 @@ const About = () => {
               I thrive in environments where I can leverage AI to solve complex, real-world problems and build innovative tools 
               that enhance lives and businesses alike.
             </p>
-            <p className="text-lg mb-4">
-              Currently studying at Northeastern University's Khoury College of Computer Sciences with a GPA of 3.8, my coursework includes 
-              Machine Learning, Large Scale Information Retrieval, Machine Learning in Finance, and HCI in NLP.
-            </p>
+          
             <p className="text-lg">
-              Outside work, you'll find me exploring trendy cafés, advocating for animal rights, or trekking my way through nature trails. 
-              Always curious, forever exploring. 🌎✨
+              Outside work, you'll find me exploring trendy speakeasies, training for a marathon, or trekking my way through nature trails. Or lowkey bingeing on netflix.
             </p>
           </div>
           <div>

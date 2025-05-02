@@ -15,17 +15,17 @@ const projectsData = [
     technologies: ["Python", "Machine Learning", "NLP", "Canvas API", "LinkedIn API"],
     category: "data-science",
     github: "https://github.com/Anyueow/linkedin-analyzer",
-    demo: "https://example.com/demo"
+
   },
   {
     id: 2,
     title: "LoRA Dialect Bias Mitigation",
-    description: "Reduced hidden dialect bias in Large Language Models (Meta-LLaMA-3) using LoRA adapters, improving fairness in AI decision-making for resume screening and hiring scenarios.",
+    description: "Proved hidden dialect bias in Large Language Models (Meta-LLaMA-3) using LoRA adapters, improving fairness in AI decision-making for resume screening and hiring scenarios.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop",
     technologies: ["PyTorch", "LLMs", "NLP", "LoRA", "Fairness Metrics"],
     category: "data-science",
-    github: "https://github.com/Anyueow/lora-debiasing-llms",
-    demo: "https://example.com/demo"
+    github: "https://github.com/mihirathale98/aae-dialect-bias-mitigation",
+ 
   },
   {
     id: 3,
@@ -34,8 +34,8 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop",
     technologies: ["TensorFlow", "CNN", "LSTM", "Computer Vision", "Time Series"],
     category: "data-science",
-    github: "https://github.com/Anyueow/cnn-fashion-predictor",
-    demo: "https://example.com/demo"
+    github: "https://github.com/Anyueow/FashionTrendAnalyzer2.0r",
+
   },
   {
     id: 4,
@@ -44,8 +44,8 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format&fit=crop",
     technologies: ["Python", "AWS Lambda", "S3", "Streamlit", "Data Visualization"],
     category: "software",
-    github: "https://github.com/Anyueow/spend-analyzer",
-    demo: "https://example.com/demo"
+    github: "https://github.com/Anyueow/personal-finance-tracker",
+
   },
   {
     id: 5,
@@ -54,8 +54,8 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&auto=format&fit=crop",
     technologies: ["MongoDB", "Express", "React", "Node.js", "AWS"],
     category: "software",
-    github: "https://github.com/Anyueow/findher",
-    demo: "https://example.com/demo"
+    github: "https://github.com/Anyueow/findher-frontend",
+
   },
   {
     id: 6,
@@ -64,8 +64,7 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&auto=format&fit=crop",
     technologies: ["Python", "LSTM", "Random Forest", "Financial Analysis", "Pandas"],
     category: "finance",
-    github: "https://github.com/Anyueow/esg-portfolio",
-    demo: "https://example.com/demo"
+    github: "https://github.com/Anyueow/ESG-Impact-on-Portfolios",
   }
 ];
 
@@ -143,12 +142,7 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
             Code
           </a>
         </Button>
-        <Button size="sm" asChild className="flex-1">
-          <a href={project.demo} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="h-4 w-4 mr-2" />
-            Demo
-          </a>
-        </Button>
+
       </CardFooter>
     </Card>
   );
