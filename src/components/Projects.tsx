@@ -104,6 +104,28 @@ const projectsData = [
     ],
     category: "software",
     link: "https://github.com/Anyueow/SimpleRAGandIngest"
+    },
+    {
+    id: 10,
+    title: "Tyle – RFP Proposal Automation",
+    description:
+      "Researched the full RFP lifecycle, mapped end‑to‑end user flows, and built an interactive Figma prototype that streamlines proposal creation for gov‑tech vendors. Demoed to early adopters and reached finalist stage in the US–China Young Change Makers competition.",
+    image:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600",
+    technologies: ["Product Discovery", "UX Research", "Figma", "Prototyping"],
+    category: "side-project",
+    link: 'https://www.figma.com/design/9Ks3zQtOJCQe0JUVCHpLw4/Tyle-Prototype?node-id=1403-203&t=ILTebGqyLKHsbCNJ-1'
+  },
+  {
+    id: 11,
+    title: "Sandcastles – Collaborative Mini‑Project Workspace",
+    description:
+      "Weekend side‑project that blends lightweight task planning with real‑time collaboration so small teams can \"never work alone.\" I applied my planning/organizational chops to design and ship a Framer‑powered web app in 48 h.",
+    image:
+      "https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=600",
+    technologies: ["Framer", "React", "Project Planning", "Collaboration"],
+    category: "side‑project",
+    link: "https://sandcastles.framer.website"
   }
   
 ];
